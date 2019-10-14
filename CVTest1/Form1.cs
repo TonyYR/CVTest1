@@ -14,8 +14,11 @@ namespace CVTest1
 {
     public partial class Form1 : Form
     {
+        private VideoCaptureSamples captureSample { get; set; }
+
         public Form1()
         {
+            captureSample = new VideoCaptureSamples();
             InitializeComponent();
         }
 
@@ -78,6 +81,21 @@ namespace CVTest1
         {
             return OpenCvSharp.Extensions.BitmapConverter.ToBitmap(Image);
         }
+        
+         
+        /// <summary>
+        /// Video Capture開始
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnStartCapture_Click(object sender, EventArgs e)
+        {
+            captureSample.Run();
+        }
 
+        private void Button1_Click_1(object sender, EventArgs e)
+        {
+            captureSample.Stop();
+        }
     }
 }
